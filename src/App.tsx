@@ -7,6 +7,7 @@ import { fetchAuth } from "./store/auth/actions";
 
 // Pages/route components
 import GamePage from "./pages/GamePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
             <Header />
             <Switch>
                 <Route path="/" component={GamePage} exact />
+                <Route path="/login" component={LoginPage} exact />
             </Switch>
             <GlobalStyle />
         </>
