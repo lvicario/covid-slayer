@@ -1,3 +1,4 @@
 export const FETCH_AUTH_START = "FETCH_AUTH_START";
 export const FETCH_AUTH_SUCCESS = "FETCH_AUTH_SUCCESS";
 export const FETCH_AUTH_FAILURE = "FETCH_AUTH_FAILURE";
+export const LOGOUT = "LOGOUT";

@@ -1,29 +1,24 @@
-import React, { useEffect } from 'react';
-import { Switch, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import GlobalStyle from "./style/global.style";
-import { fetchAuth } from "./store/auth/actions";
+import useAuth from "./hooks/useAuth";
 
 // Pages/route components
 import GamePage from "./pages/GamePage";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchAuth({
-            email: "testing@test.com",
-            password: "testing"
-        }));
-    });
+    const { isAuthenticated } = useAuth();
 
     return (
         <>
             <Header />
             <Switch>
-                <Route path="/" component={GamePage} exact />
+                <Route exact path="/">
+                    {!isAuthenticated ? <Redirect to="/login" /> : <GamePage />}
+                </Route>
+
                 <Route path="/login" component={LoginPage} exact />
             </Switch>
             <GlobalStyle />

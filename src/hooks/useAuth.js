@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { fetchAuth } from "./../store/auth/actions";
+import { fetchAuth, logout } from "./../store/auth/actions";
 
 const useAuth = () => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
@@ -12,7 +12,8 @@ const useAuth = () => {
         isFetching,
         user,
         errorMessage,
-        fetchAuth
+        fetchAuth,
+        logout
     };
 }
 

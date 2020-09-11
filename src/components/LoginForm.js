@@ -6,9 +6,8 @@ import { useHistory } from "react-router-dom";
 import useAuth from "./../hooks/useAuth";
 import { FieldWrapper } from "./utils/ui/FieldWrapper";
 
-
 const LoginSchema = Yup.object().shape({
-    username: Yup.string()
+    email: Yup.string()
         .required('Required'),
     password: Yup.string()
         .min(6)
@@ -18,8 +17,8 @@ const LoginSchema = Yup.object().shape({
 const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { isFetching, isAuthenticated, errorMessage, fetchAuth } = useAuth();
-    const usernameRef = useRef(null);
+    const { isAuthenticated, fetchAuth } = useAuth();
+    const emailRef = useRef(null);
 
     const handleSubmit = (values, { setSubmitting }) => {
         dispatch(fetchAuth(values));
@@ -27,30 +26,30 @@ const Login = () => {
     };
 
     useEffect(() => {
-        // if (isAuthenticated) {
-        //     history.push("/");
-        // }
+        if (isAuthenticated) {
+            history.push("/");
+        }
 
-        // auto focus username field
-        usernameRef && usernameRef.current && usernameRef.current.focus();
-    }, [isAuthenticated]);
+        // auto focus email field
+        emailRef && emailRef.current && emailRef.current.focus();
+    }, [isAuthenticated, history]);
 
     return (
         <Formik
             initialValues={{
-                username: "",
+                email: "",
                 password: "",
             }}
             validationSchema={LoginSchema}
             onSubmit={handleSubmit}
         >
-            {({ isSubmitting, ...otherProps }) => {
+            {({ isSubmitting }) => {
                 return (
                     <>
                         <Form>
                             <FieldWrapper>
-                                <Field type="text" name="username" innerRef={usernameRef} />
-                                <ErrorMessage name="username" component="div" className="error-message" />
+                                <Field type="text" name="email" innerRef={emailRef} />
+                                <ErrorMessage name="email" component="div" className="error-message" />
                             </FieldWrapper>
                             <FieldWrapper>
                                 <Field type="text" name="password" autoComplete="off" />

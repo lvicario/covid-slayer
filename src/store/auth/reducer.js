@@ -1,4 +1,9 @@
-import { FETCH_AUTH_START, FETCH_AUTH_SUCCESS, FETCH_AUTH_FAILURE } from "./types";
+import {
+    FETCH_AUTH_START,
+    FETCH_AUTH_SUCCESS,
+    FETCH_AUTH_FAILURE,
+    LOGOUT
+} from "./types";
 
 const initialState = {
     isAuthenticated: false,
@@ -24,6 +29,7 @@ const authReducer = (state = initialState, action) => {
             isAuthenticated: true,
             errorMessage: undefined
         };
+    case LOGOUT:
     case FETCH_AUTH_FAILURE:
         return {
             ...state,
