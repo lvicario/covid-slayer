@@ -1,0 +1,29 @@
+{
+  "auth": {
+    "authenticated": true,
+    "user": {
+      "username": "cashierhra",
+      "firstname": "John",
+      "lastname": "Doe",
+      "age": 30
+    }
+  },
+  "users": [
+    {
+      "email": "mdoe@gmail.com",
+      "password": "$2a$10$s2CCxjjP1kgYxX6OAq.rgelEKhe5jjNfLPQ4px2qt6DtWlEbCSyYq",
+      "firstname": "Mark",
+      "lastname": "Doe",
+      "age": 32,
+      "id": 123
+    },
+    {
+      "email": "cashierhra@gmail.com",
+      "password": "$2a$10$YxiNj8NiMx/Ut2UsHF8Fmeb2qu.tQOd.6YhnU4hNiWDRtLXLmmbIG",
+      "firstname": "John",
+      "lastname": "Doe",
+      "age": 30,
+      "id": 3
+    }
+  ]
+}
