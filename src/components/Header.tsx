@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useAuth from "./../hooks/useAuth";
+import useAuth from "@src/hooks/useAuth";
 
 const StyledHeader = styled.header`
     margin-bottom: 4rem;

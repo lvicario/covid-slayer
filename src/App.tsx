@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
-import Header from "./components/Header";
-import GlobalStyle from "./style/global.style";
-import useAuth from "./hooks/useAuth";
+import Header from "@components/Header";
+import GlobalStyle from "@src/style/global.style";
+import useAuth from "@src/hooks/useAuth";
 
 // Pages/route components
-import GamePage from "./pages/GamePage";
-import LoginPage from "./pages/LoginPage";
+import GamePage from "@src/pages/GamePage";
+import LoginPage from "@src/pages/LoginPage";
 
 function App() {
     const { isAuthenticated } = useAuth();

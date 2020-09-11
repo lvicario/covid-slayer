@@ -1,4 +1,4 @@
-import { mockApi } from "../../apis";
+import { mockApi } from "@src/apis";
 
 import {
     FETCH_AUTH_START,

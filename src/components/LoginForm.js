@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { useHistory } from "react-router-dom";
-import useAuth from "./../hooks/useAuth";
-import { FieldWrapper } from "./utils/ui/FieldWrapper";
+import useAuth from "@src/hooks/useAuth";
+import { FieldWrapper } from "@utils/ui/FieldWrapper";
 
 const LoginSchema = Yup.object().shape({
     email: Yup.string()
