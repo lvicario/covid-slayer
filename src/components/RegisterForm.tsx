@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useHistory } from "react-router-dom";
 import useAuth from "@src/hooks/useAuth";
 import { FieldWrapper } from "@utils/ui/FieldWrapper";
-import authService from "@services/authService";
+import playerService from "@services/playerService";
 import Notification from "@utils/ui/Notification";
 import { getErrorMessage } from "@src/helpers";
 
@@ -35,7 +35,7 @@ const RegisterForm = () => {
 
     const handleSubmit = async (values: any, { setSubmitting }: any) => {
         try {
-            const result = await authService.register(values);
+            const result = await playerService.register(values);
             setNotification({message: "Registration successful!", variant: "success"});
             setSubmitting(false);
         } catch (err) {
