@@ -10,6 +10,8 @@ class AuthService extends HttpService {
         return new Promise(async (resolve, reject) => {
             try {
             	const response = await this.client.post("/signin", data);
+                const jwt = response.data.accessToken;
+                localStorage.setItem("token", jwt);
 
             	resolve(response.data);
             } catch (err) {

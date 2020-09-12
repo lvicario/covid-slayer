@@ -36,7 +36,6 @@ const RegisterForm = () => {
     const handleSubmit = async (values: any, { setSubmitting }: any) => {
         try {
             const result = await playerService.register(values);
-            localStorage.setItem("token", result.accessToken)
             setNotification({message: "Registration successful!", variant: "success"});
             setSubmitting(false);
         } catch (err) {

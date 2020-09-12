@@ -33,8 +33,6 @@ export const fetchAuth = (data) => async dispatch => {
 
     try {
         const result = await authService.login(data);
-        const jwt = result.accessToken;
-        localStorage.setItem("token", jwt);
 
         loadUserFromStorage(dispatch);
     } catch (err) {
