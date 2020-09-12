@@ -1,4 +1,3 @@
-import jwtDecode from "jwt-decode";
 import authService from "@services/authService";
 
 import {
@@ -33,24 +32,16 @@ export const fetchAuth = (data) => async dispatch => {
 
     try {
         const result = await authService.login(data);
+        const user = authService.getUserFromStorage();
 
-        loadUserFromStorage(dispatch);
+        dispatch(fetchAuthSuccess(user));
     } catch (err) {
         dispatch(fetchAuthFailure("Error logging in..."));
     }
 };
 
-export const loadUserFromStorage = dispatch => {
-    try {
-        const token = localStorage.getItem("token");
-        const decoded = jwtDecode(token);
-
-        dispatch(fetchAuthSuccess(decoded));
-    } catch (err) {}
-}
-
 export const logout = ()  => dispatch => {
-    localStorage.removeItem("token");
+    authService.removeToken();
 
     dispatch({
         type: LOGOUT
