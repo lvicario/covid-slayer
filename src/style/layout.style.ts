@@ -1,5 +1,5 @@
-import { color } from "./variable.style";
 import { css } from "styled-components";
+import { color } from "./variable.style";
 
 const layoutStyle = css`
     #root {

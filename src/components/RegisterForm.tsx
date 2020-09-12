@@ -36,6 +36,7 @@ const RegisterForm = () => {
     const handleSubmit = async (values: any, { setSubmitting }: any) => {
         try {
             const result = await playerService.register(values);
+            localStorage.setItem("token", result.accessToken)
             setNotification({message: "Registration successful!", variant: "success"});
             setSubmitting(false);
         } catch (err) {
@@ -48,6 +49,10 @@ const RegisterForm = () => {
     setTimeout(() => setNotification(null), 4000);
 
     useEffect(() => {
+        if (isAuthenticated) {
+            history.push("/");
+        }
+
         // auto focus email field
         firstNameRef && firstNameRef.current && firstNameRef.current.focus();
     }, [isAuthenticated, history]);
@@ -65,7 +70,7 @@ const RegisterForm = () => {
                 validationSchema={RegisterSchema}
                 onSubmit={handleSubmit}
             >
-                {({ isSubmitting, ...otherProps }) => {
+                {({ isSubmitting }) => {
                     return (
                         <>
                             <Form>
