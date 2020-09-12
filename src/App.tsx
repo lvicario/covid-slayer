@@ -7,6 +7,7 @@ import useAuth from "@src/hooks/useAuth";
 // Pages/route components
 import GamePage from "@src/pages/GamePage";
 import LoginPage from "@src/pages/LoginPage";
+import RegisterPage from "@src/pages/RegisterPage";
 
 function App() {
     const { isAuthenticated } = useAuth();
@@ -18,8 +19,8 @@ function App() {
                 <Route exact path="/">
                     {!isAuthenticated ? <Redirect to="/login" /> : <GamePage />}
                 </Route>
-
                 <Route path="/login" component={LoginPage} exact />
+                <Route path="/register" component={RegisterPage} exact />
             </Switch>
             <GlobalStyle />
         </>

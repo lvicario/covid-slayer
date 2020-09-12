@@ -1,4 +1,4 @@
-import { mockApi } from "@src/apis";
+import authService from "@services/authService";
 
 import {
     FETCH_AUTH_START,
@@ -27,19 +27,14 @@ export const fetchAuthFailure = errorMessage => {
     }
 }
 
-export const fetchAuth = loginData => async dispatch => {
+export const fetchAuth = (data) => async dispatch => {
     dispatch(fetchAuthStart());
 
-    console.log("loginData:", loginData);
-
     try {
-        const response = await mockApi.post("/signin", loginData);
-        console.log("response.data:", response.data);
-
-        dispatch(fetchAuthSuccess(response.data));
+        const result = await authService.login(data);
+        dispatch(fetchAuthSuccess(result));
     } catch (err) {
-        console.dir(err);
-        dispatch(fetchAuthFailure("Incorrect credentials..."));
+        dispatch(fetchAuthFailure("Error logging in..."));
     }
 };
 

@@ -7,20 +7,20 @@ import useAuth from "@src/hooks/useAuth";
 import { FieldWrapper } from "@utils/ui/FieldWrapper";
 
 const LoginSchema = Yup.object().shape({
-    email: Yup.string()
+    email: Yup.string().email()
         .required('Required'),
     password: Yup.string()
         .min(6)
         .required('Required')
 });
 
-const Login = () => {
+const LoginForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { isAuthenticated, fetchAuth } = useAuth();
     const emailRef = useRef(null);
 
-    const handleSubmit = (values, { setSubmitting }) => {
+    const handleSubmit = (values, { setSubmitting, ...otherProps }) => {
         dispatch(fetchAuth(values));
         setSubmitting(false);
     };
@@ -48,11 +48,11 @@ const Login = () => {
                     <>
                         <Form>
                             <FieldWrapper>
-                                <Field type="text" name="email" innerRef={emailRef} />
+                                <Field type="text" name="email" innerRef={emailRef} autoComplete="off" />
                                 <ErrorMessage name="email" component="div" className="error-message" />
                             </FieldWrapper>
                             <FieldWrapper>
-                                <Field type="text" name="password" autoComplete="off" />
+                                <Field type="password" name="password" autoComplete="off" />
                                 <ErrorMessage name="password" component="div" className="error-message" />
                             </FieldWrapper>
                             <button type="submit" disabled={isSubmitting}>Login</button>
@@ -64,4 +64,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginForm;
