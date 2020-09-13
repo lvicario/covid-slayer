@@ -10,20 +10,20 @@
   },
   "users": [
     {
-      "email": "mdoe@gmail.com",
-      "password": "$2a$10$s2CCxjjP1kgYxX6OAq.rgelEKhe5jjNfLPQ4px2qt6DtWlEbCSyYq",
-      "firstname": "Mark",
-      "lastname": "Doe",
-      "age": 32,
-      "id": 123
-    },
-    {
-      "email": "cashierhra@gmail.com",
-      "password": "$2a$10$YxiNj8NiMx/Ut2UsHF8Fmeb2qu.tQOd.6YhnU4hNiWDRtLXLmmbIG",
+      "email": "testing@gmail.com",
+      "password": "$2a$10$sxUzn5aVYGy4tHUnd9hSR.HuSLP4d5727ndXCQ7NZPXvT0EQXKW56",
       "firstname": "John",
       "lastname": "Doe",
-      "age": 30,
-      "id": 3
+      "age": 32,
+      "id": 1
+    },
+    {
+      "email": "mjohnson@gmail.com",
+      "password": "$2a$10$ucGf.2JlNdyczo/Jo0RvZu1FmVsobRqCIe/D08Ohn0GyXaDxJ/aiC",
+      "firstName": "Mark",
+      "lastName": "Johnson",
+      "avatar": "",
+      "id": 2
     }
   ]
 }
