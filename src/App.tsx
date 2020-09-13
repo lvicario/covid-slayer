@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Header from "@components/Header";
-import useAuth from "@src/hooks/useAuth";
-import authService from "@services/authService";
-import PrivateRoute from "@utils/PrivateRoute";
-import GlobalStyle from "@src/style/global.style";
+import Header from "./components/Header";
+import useAuth from "./hooks/useAuth";
+import authService from "./services/authService";
+import PrivateRoute from "./components/utils/PrivateRoute";
+import GlobalStyle from "./style/global.style";
 
 // Pages/route components
-import GamePage from "@src/pages/GamePage";
-import LoginPage from "@src/pages/LoginPage";
-import RegisterPage from "@src/pages/RegisterPage";
+import GamePage from "./pages/GamePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
     const { isAuthenticated, fetchAuthSuccess } = useAuth();

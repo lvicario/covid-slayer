@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import useAuth from "@src/hooks/useAuth";
+import useAuth from "./../../hooks/useAuth";
 
-const PrivateRoute = ({component: Component, ...props}) => {
+const PrivateRoute = ({component: Component, ...props}: any) => {
     const { isAuthenticated } = useAuth();
 
     return (

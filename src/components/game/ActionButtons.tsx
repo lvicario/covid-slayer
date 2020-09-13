@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useGame from "@src/hooks/useGame";
+import useGame from "./../../hooks/useGame";
 
 const Wrapper = styled.footer`
     ul {

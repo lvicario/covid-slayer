@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import MainMenu from "@components/MainMenu";
-import GameTimer from "@components/game/GameTimer";
-import useAuth from "@src/hooks/useAuth";
-import { color } from "@src/style/variable.style";
+import MainMenu from "./MainMenu";
+import GameTimer from "./game/GameTimer";
+import useAuth from "./../hooks/useAuth";
+import { color } from "./../style/variable.style";
 
 const Wrapper = styled.div`    
     display: flex;

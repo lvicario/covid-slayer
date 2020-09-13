@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { color } from "@src/style/variable.style";
+import { color } from "./../../../style/variable.style";
 
 const getVariant = (variant: string) => {
     switch ( variant ) {

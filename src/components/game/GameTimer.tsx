@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import useGame from "@src/hooks/useGame";
-import useAuth from "@src/hooks/useAuth";
+import useGame from "./../../hooks/useGame";
+import useAuth from "./../../hooks/useAuth";
 
 const Wrapper = styled.div`
     padding: 1rem 1em 1.1rem;
 `;
 
 const GameTimer = () => {
-    const { started, timeLeft, countdown, resetTime } = useGame();
+    const { started, timeLeft, countdown, resetTime }: any = useGame();
     const { isAuthenticated } = useAuth();
 
     useEffect(() => {

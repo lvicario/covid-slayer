@@ -15,7 +15,7 @@ export class HttpService {
 	}
 
 	responseInterceptor() {
-		this.client.interceptors.response.use(null, err => {
+		this.client.interceptors.response.use((resp) => resp, (err: any) => {
 			const expectedError =
 				err.response &&
 				err.response.status >= 400 &&

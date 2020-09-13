@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "@src/style/variable.style";
+import { color } from "./../../../style/variable.style";
 
 export const FieldWrapper = styled.div`
     overflow: hidden;

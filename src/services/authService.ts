@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { HttpService, HttpInstance, HttpResponse } from "./httpService";
-import config from "@src/config.json";
+import config from "./../config.json";
 
 const TOKEN = "token";
 
@@ -25,7 +25,7 @@ class AuthService extends HttpService {
 
     public getUserFromStorage = () => {
         try {
-            const token = localStorage.getItem(TOKEN);
+            const token: any = localStorage.getItem(TOKEN);
             return jwtDecode(token);
         } catch (err) {
             return null;

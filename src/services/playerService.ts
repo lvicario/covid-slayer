@@ -1,5 +1,5 @@
 import { HttpService, HttpInstance, HttpResponse } from "./httpService";
-import config from "@src/config.json";
+import config from "./../config.json";
 
 interface RegisterProp {
     email: string;

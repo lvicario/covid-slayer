@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { useHistory } from "react-router-dom";
-import useAuth from "@src/hooks/useAuth";
-import { FieldWrapper } from "@utils/ui/FieldWrapper";
-import playerService from "@services/playerService";
-import Notification from "@utils/ui/Notification";
-import { getErrorMessage } from "@src/helpers";
+import useAuth from "./../hooks/useAuth";
+import { FieldWrapper } from "./utils/ui/FieldWrapper";
+import playerService from "./../services/playerService";
+import Notification from "./utils/ui/Notification";
+import { getErrorMessage } from "./../helpers";
 
 const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()

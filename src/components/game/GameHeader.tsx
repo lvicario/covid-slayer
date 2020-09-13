@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useAuth from "@src/hooks/useAuth";
+import useAuth from "./../../hooks/useAuth";
 
 const Wrapper = styled.section`
     display: flex;

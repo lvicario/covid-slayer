@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useAuth from "@src/hooks/useAuth";
-import { color } from "@src/style/variable.style";
+import useAuth from "./../hooks/useAuth";
+import { color } from "./../style/variable.style";
 
 const Wrapper = styled.ul`
     display: flex;
@@ -27,7 +27,7 @@ const MainMenu = () => {
     const dispatch = useDispatch();
     const { isAuthenticated, logout } = useAuth();
 
-    const handleLogout = (e) => {
+    const handleLogout = (e: React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(logout());
     };

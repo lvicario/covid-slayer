@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderBar from "@components/HeaderBar";
+import HeaderBar from "./HeaderBar";
 
 const StyledHeader = styled.header`
     padding: 4rem 0 0;

@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { startGame, setGameTime, startCountdown, resetCountdown } from "@src/store/game/actions";
+import { startGame, setGameTime, startCountdown, resetCountdown } from "./../store/game/actions";
 
 const useGame = () => {
 	const dispatch = useDispatch();
-	const started = useSelector(state => state.game.started);
-	const timeLeft = useSelector(state => state.game.timeLeft);
-	const players = useSelector(state => state.game.players);
+	const started = useSelector<any>(state => state.game.started);
+	const timeLeft = useSelector<any>(state => state.game.timeLeft);
+	const players = useSelector<any>(state => state.game.players);
 
 	const start = (initialTime?: number) => {
 		dispatch(startGame(initialTime));
