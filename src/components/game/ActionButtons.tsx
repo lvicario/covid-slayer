@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import useGame from "@src/hooks/useGame";
 
-const StyledFooter = styled.footer`
+const Wrapper = styled.footer`
     ul {
         display: flex;
         margin: 0;
@@ -11,7 +12,7 @@ const StyledFooter = styled.footer`
 
     li {
         width: 100%;
-        padding: 1rem;
+        padding: 0 1rem;
     }
 
     button {
@@ -20,17 +21,19 @@ const StyledFooter = styled.footer`
 `;
 
 
-const Footer = () => {
-    return (
-        <StyledFooter>
+const ActionButtons = () => {
+    const game = useGame();
+
+    return game.started && (
+        <Wrapper>
             <ul>
                 <li><button type="button">Attack</button></li>
                 <li><button type="button">Blast</button></li>
                 <li><button type="button">Heal</button></li>
                 <li><button type="button">Give Up</button></li>
             </ul>
-        </StyledFooter>
+        </Wrapper>
     );
 };
 
-export default Footer;
+export default ActionButtons;

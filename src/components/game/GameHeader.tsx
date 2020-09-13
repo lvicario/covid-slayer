@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useAuth from "@src/hooks/useAuth";
 
 const Wrapper = styled.section`
     display: flex;
@@ -11,11 +12,13 @@ const Wrapper = styled.section`
     }
 `;
 
-const Header = () => {
+const GameHeader = () => {
+    const { user } = useAuth();
+
 	return (
 		<Wrapper>
             <div>
-                <h2>Player 1</h2>
+                <h2>{user.email}</h2>
                 <progress id="file" max="100" value="70">70%</progress>
             </div>
             <div>
@@ -26,4 +29,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default GameHeader;

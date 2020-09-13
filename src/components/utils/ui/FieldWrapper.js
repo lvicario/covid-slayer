@@ -3,13 +3,13 @@ import { color } from "@src/style/variable.style";
 
 export const FieldWrapper = styled.div`
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     select,
     input {
         display: block;
         width: 100%;
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1rem;
     }
 
     // Disabled inputs/select

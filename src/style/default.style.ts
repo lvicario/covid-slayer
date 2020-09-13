@@ -18,7 +18,7 @@ const defaultStyle = css`
         min-width: 100%;
         margin: 0;
         padding: 0;
-        background: ${color.white};
+        background: ${color.lightestGray};
         color: ${color.darkGray};
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         font-size: 16px;
@@ -98,7 +98,7 @@ const defaultStyle = css`
     dl,
     form,
     menu {
-        margin: 0 0 1.5rem;
+        margin: 0 0 3rem;
     }
 
     ul {

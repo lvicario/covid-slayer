@@ -3,13 +3,23 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import useAuth from "@src/hooks/useAuth";
+import { color } from "@src/style/variable.style";
 
 const Wrapper = styled.ul`
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 
     a {
-        padding: 0.5rem 1rem;
+        display: block;
+        padding: 1rem 1em 1.1rem;
+        color: #fff;
+        text-transform: uppercase;
+
+        &:hover {
+            color: ${color.fireRed}
+        }
     }
 `;
 
@@ -37,7 +47,7 @@ const MainMenu = () => {
 
     return (
         <Wrapper>
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Game</Link></li>
             {getAuthLink()}
         </Wrapper>
     );
