@@ -9,5 +9,5 @@ $ yarn mock
 
 ### Demo
 1. Register by clicking the register link
-> Will auto login & redirect to game page
+> Will auto login & redirect to game page after successful registration
 2. Click start button
