@@ -24,6 +24,20 @@
       "lastName": "Johnson",
       "avatar": "",
       "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$iCmhN5DaPyMtuWFTnQbJhOc6OWluaI6XCbD97n2yhz7c4SXXn2WDq",
+      "firstName": "test",
+      "lastName": "test",
+      "id": 3
+    },
+    {
+      "email": "test2@test.com",
+      "password": "$2a$10$HZl1f71j1o7Vtxq1rsS29.Zc48t.4XCf0LwZhbKBxf8Hk1oRz.sXW",
+      "firstName": "test",
+      "lastName": "rteast",
+      "id": 4
     }
   ]
 }
