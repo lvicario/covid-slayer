@@ -3,9 +3,7 @@ import { startGame, setGameTime, startCountdown, resetCountdown } from "./../sto
 
 const useGame = () => {
 	const dispatch = useDispatch();
-	const started = useSelector<any>(state => state.game.started);
-	const timeLeft = useSelector<any>(state => state.game.timeLeft);
-	const players = useSelector<any>(state => state.game.players);
+	const { started, timeLeft, players }: any = useSelector<any>(state => state.game);
 
 	const start = (initialTime?: number) => {
 		dispatch(startGame(initialTime));
