@@ -18,7 +18,7 @@ const GameScreen = () => {
 
 	return (
 		<GameWrapper>
-            {!game.started && <button onClick={() => game.start()}>Start</button>}
+            {!game.started && <button onClick={() => game.start(100)}>Start</button>}
             {game.started && <h3>Game is started</h3>}
         </GameWrapper>
 	);

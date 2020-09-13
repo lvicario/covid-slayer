@@ -13,9 +13,10 @@ export const setGameTime = time => {
     };
 };
 
-export const startGame = () => {
+export const startGame = (initialTime) => {
     return {
-        type: GAME_STARTED
+        type: GAME_STARTED,
+        payload: initialTime
     }
 }
 

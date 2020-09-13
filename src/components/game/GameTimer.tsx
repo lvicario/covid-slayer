@@ -27,7 +27,7 @@ const GameTimer = () => {
         resetTime();
     }, [isAuthenticated]);
 
-    return started && isAuthenticated && (
+    return started && (
         <Wrapper>
             Time left: {timeLeft}
         </Wrapper>

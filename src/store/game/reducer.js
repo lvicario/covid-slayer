@@ -10,6 +10,7 @@ import {
 
 const initialState = {
     started: false,
+    configuredTimeLeft: null,
     timeLeft: 60,
     players: {
         first: {
@@ -28,6 +29,8 @@ const authReducer = (state = initialState, action) => {
     case GAME_STARTED:
         return {
             ...state,
+            configuredTimeLeft: action.payload,
+            timeLeft: action.payload || initialState.timeLeft,
             started: true
         };
     case SET_GAME_TIME:
@@ -43,7 +46,7 @@ const authReducer = (state = initialState, action) => {
     case RESET_COUNTDOWN:
         return {
             ...state,
-            timeLeft: initialState.timeLeft
+            timeLeft: state.configuredTimeLeft || initialState.timeLeft
         };
     case SURRENDER_GAME:
         return {

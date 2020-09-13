@@ -7,8 +7,8 @@ const useGame = () => {
 	const timeLeft = useSelector(state => state.game.timeLeft);
 	const players = useSelector(state => state.game.players);
 
-	const start = () => {
-		dispatch(startGame());
+	const start = (initialTime?: number) => {
+		dispatch(startGame(initialTime));
 	};
 
 	const setTime = () => {
