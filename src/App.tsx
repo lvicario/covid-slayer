@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "@components/Header";
 import useAuth from "@src/hooks/useAuth";
 import authService from "@services/authService";
+import PrivateRoute from "@utils/PrivateRoute";
 import GlobalStyle from "@src/style/global.style";
 
 // Pages/route components
@@ -27,13 +28,13 @@ function App() {
     return (
         <>
             <Header />
-            <Switch>
-                <Route exact path="/">
-                    {!isAuthenticated ? <Redirect to="/login" /> : <GamePage />}
-                </Route>
-                <Route path="/login" component={LoginPage} exact />
-                <Route path="/register" component={RegisterPage} exact />
-            </Switch>
+            <main>
+                <Switch>
+                    <PrivateRoute exact path="/" component={GamePage} />
+                    <Route path="/login" component={LoginPage} exact />
+                    <Route path="/register" component={RegisterPage} exact />
+                </Switch>
+            </main>
             <GlobalStyle />
         </>
     );
