@@ -11,3 +11,4 @@ $ yarn mock
 1. Register by clicking the register link
 > Will auto login & redirect to game page after successful registration
 2. Click start button
+3. Logout & login again using the registered email & password.
