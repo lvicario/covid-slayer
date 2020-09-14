@@ -1,42 +1,62 @@
 import { Actions } from "@reduxjs/toolkit";
+import { reducePlayerHealth, switchTurn } from "./../../helpers";
 
 import {
     GAME_STARTED,
-    SET_GAME_TIME,
+    GAME_RESET,
     SURRENDER_GAME,
     RESET_COUNTDOWN,
-    START_COUNTDOWN
+    START_COUNTDOWN,
+    ATTACK_NORMAL,
+    ANOUNCE_WINNER
 } from "./types";
+
+const initialPlayerProps = {
+    health: 100,
+    surrendered: false
+}
 
 const initialState = {
     started: false,
     configuredTimeLeft: null,
     timeLeft: 60,
+    winner: null,
+    playerTurn: "bot",
     players: {
-        first: {
-            health: 100,
-            surrendered: false
-        },
-        second: {
-            health: 100,
-            surrendered: false
+        bot: {
+            ...initialPlayerProps
         }
     }
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-    case GAME_STARTED:
+    case ATTACK_NORMAL:
         return {
             ...state,
-            configuredTimeLeft: action.payload,
-            timeLeft: action.payload || initialState.timeLeft,
-            started: true
+            players: reducePlayerHealth(state, action),
+            playerTurn: switchTurn(state)
         };
-    case SET_GAME_TIME:
+    case ANOUNCE_WINNER:
         return {
             ...state,
-            timeLeft: action.payload
+            winner: action.payload
+        };
+    case GAME_STARTED:
+        const { user, initialTime} = action.payload;
+
+        return {
+            ...state,
+            started: true,
+            configuredTimeLeft: initialTime,
+            timeLeft: initialTime || initialState.timeLeft,
+            winner: null,
+            playerTurn: user.email,
+            players: {[user.email]: {...initialPlayerProps} , ...initialState.players}
+        };
+    case GAME_RESET:
+        return {
+            ...initialState
         };
     case START_COUNTDOWN:
         return {

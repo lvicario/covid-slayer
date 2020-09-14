@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import useAuth from "./../hooks/useAuth";
+import useGame from "./../hooks/useGame";
 import { color } from "./../style/variable.style";
 
 const Wrapper = styled.ul`
@@ -26,10 +27,14 @@ const Wrapper = styled.ul`
 const MainMenu = () => {
     const dispatch = useDispatch();
     const { isAuthenticated, logout } = useAuth();
+    const game = useGame();
 
     const handleLogout = (e: React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(logout());
+
+        // Reset to initial game state
+        game.reset();
     };
 
     const getAuthLink = () => {

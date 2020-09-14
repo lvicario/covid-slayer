@@ -2,21 +2,40 @@ import authService from "./../../services/authService";
 
 import {
     GAME_STARTED,
-    SET_GAME_TIME,
+    GAME_RESET,
     START_COUNTDOWN,
-    RESET_COUNTDOWN
+    RESET_COUNTDOWN,
+    ATTACK_NORMAL,
+    ANOUNCE_WINNER
 } from "./types";
 
-export const setGameTime = time => {
+export const attackNormal = (player) => {
     return {
-        type: SET_GAME_TIME
-    };
-};
+        type: ATTACK_NORMAL,
+        payload: player
+    }
+}
 
-export const startGame = (initialTime) => {
+export const announceWinner = (player) => {
+    return {
+        type: ANOUNCE_WINNER,
+        payload: player
+    }
+}
+
+export const startGame = (user, initialTime) => {
     return {
         type: GAME_STARTED,
-        payload: initialTime
+        payload: {
+            user,
+            initialTime
+        }
+    }
+}
+
+export const resetGame = () => {
+    return {
+        type: GAME_RESET
     }
 }
 
@@ -32,7 +51,9 @@ export const resetCountdown =() => {
     }
 }
 
-export const surrender = (player) => {}
-export const attack = (player) => {}
+export const surrender = (player) => {
+
+}
+
 export const powerAttack = (player) => {}
 export const heal = (player) => {}

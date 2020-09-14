@@ -1,16 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
-import { startGame, setGameTime, startCountdown, resetCountdown } from "./../store/game/actions";
+import {
+	startGame,
+	resetGame,
+	startCountdown,
+	resetCountdown,
+	attackNormal,
+	announceWinner
+} from "./../store/game/actions";
 
 const useGame = () => {
 	const dispatch = useDispatch();
-	const { started, timeLeft, players }: any = useSelector<any>(state => state.game);
+	const { started, timeLeft, playerTurn, players, winner }: any = useSelector<any>(state => state.game);
 
-	const start = (initialTime?: number) => {
-		dispatch(startGame(initialTime));
+	const start = (user: { email: string }, initialTime?: number) => {
+		dispatch(startGame(user, initialTime));
 	};
 
-	const setTime = () => {
-		dispatch(setGameTime());
+	const reset = () => {
+		dispatch(resetGame());
 	};
 
 	const countdown = () => {
@@ -21,16 +28,28 @@ const useGame = () => {
 		dispatch(resetCountdown());
 	}
 
+	const attack = (player: string) => {
+		dispatch(attackNormal(player));
+	};
+
+	const showWinner = (player: string) => {
+		dispatch(announceWinner(player));
+	}
+
 	return {
 		// State
 		started,
 		timeLeft,
+		playerTurn,
 		players,
+		winner,
 		// Actions
 		start,
-		setTime,
+		reset,
 		countdown,
-		resetTime
+		resetTime,
+		attack,
+		showWinner
 	}
 };
 

@@ -2,30 +2,39 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import useGame from "./../../hooks/useGame";
 import useAuth from "./../../hooks/useAuth";
+import { switchTurn } from "./../../helpers";
 
 const Wrapper = styled.div`
     padding: 1rem 1em 1.1rem;
 `;
 
 const GameTimer = () => {
-    const { started, timeLeft, countdown, resetTime }: any = useGame();
-    const { isAuthenticated } = useAuth();
+    const game: any = useGame();
+    const { started, timeLeft, winner, countdown, players, playerTurn, showWinner  } = game;
 
     useEffect(() => {
         let timer: any;
 
-        if (started && timeLeft > 0) {
-            timer = setTimeout(() => countdown(), 1000);
+        if (started && !winner) {
+            if (timeLeft > 0) {
+                timer = setTimeout(() => countdown(), 1000);
+            } else {
+                const opponent = switchTurn(game);
+
+                if (players[opponent].health > players[playerTurn].health) {
+                    showWinner(opponent);
+                } else if (players[opponent].health < players[playerTurn].health) {
+                    showWinner(playerTurn);
+                } else {
+                    showWinner("tie");
+                }
+            }
         }
 
         return () => {
             clearTimeout(timer);
         }
     }, [timeLeft, started]);
-
-    useEffect(() => {
-        resetTime();
-    }, [isAuthenticated]);
 
     return started && (
         <Wrapper>
