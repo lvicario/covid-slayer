@@ -29,7 +29,7 @@ const WinnerWrapper = styled.div`
 const GameScreen = () => {
     const game: any = useGame();
     const { isAuthenticated, user } = useAuth();
-    const startButton = <button onClick={() => game.start(user, 5)}>Start</button>;
+    const startButton = <button onClick={() => game.start(user, 60)}>Start</button>;
 
     const renderGameContent = () => {
         if (!game.started) {
