@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { User, validate } = require("./../models/user");
+const auth = require("./../middleware/auth");
 
 const router = express.Router();
 
@@ -37,6 +38,17 @@ router.post("/", async (req, res) => {
             name: user.name,
             email: user.email
         });
+});
+
+router.delete("/:id", auth, async (req, res) => {
+    try {
+        const user = await User.findByIdAndRemove(req.params.id);
+        if (!user) return res.status(404).send("The user that you want to delete cant be found.");
+
+        res.send(user);
+    } catch (err) {
+        res.status(400).send(err.message);
+    }
 });
 
 module.exports = router;
