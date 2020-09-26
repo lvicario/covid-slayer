@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
     const token = user.generateAuthToken();
 
     res
-        .header("x-auth-token", token)
+        .header("x-auth-token", { accessToken: token })
         .send({
             _id: user._id,
             name: user.name,

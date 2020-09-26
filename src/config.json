@@ -1,3 +1,4 @@
 {
-	"mockEndpoint": "http://localhost:3015"
+	"mockEndpoint": "http://localhost:3015",
+	"endpoint": "http://127.0.0.1:4000/api"
 }

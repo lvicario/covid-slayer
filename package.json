@@ -14,6 +14,7 @@
     "@types/yup": "^0.29.7",
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "formik": "^2.1.5",
     "joi": "^17.2.1",
@@ -38,7 +39,8 @@
     "eject": "react-app-rewired eject",
     "serve": "yarn build && serve -s build",
     "deploy": "yarn build && gh-pages -d build",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"yarn server\" \"yarn start\""
   },
   "eslintConfig": {
     "extends": "react-app"

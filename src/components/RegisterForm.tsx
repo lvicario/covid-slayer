@@ -10,9 +10,7 @@ import Notification from "./utils/ui/Notification";
 import { getErrorMessage } from "./../helpers";
 
 const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string()
-        .required('Required'),
-    lastName: Yup.string()
+    name: Yup.string()
         .required('Required'),
     email: Yup.string().email()
         .required('Required'),
@@ -30,7 +28,7 @@ const RegisterForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { isAuthenticated, fetchAuth } = useAuth();
-    const firstNameRef = useRef<any>(null);
+    const nameRef = useRef<any>(null);
     const [notification, setNotification] = useState<NotificationState | null>(null);
 
     const handleSubmit = async (values: any, { setSubmitting }: any) => {
@@ -53,7 +51,7 @@ const RegisterForm = () => {
         }
 
         // auto focus email field
-        firstNameRef && firstNameRef.current && firstNameRef.current.focus();
+        nameRef && nameRef.current && nameRef.current.focus();
     }, [isAuthenticated, history]);
 
     return (
@@ -61,8 +59,7 @@ const RegisterForm = () => {
             {notification && <Notification variant={notification.variant}>{notification.message}</Notification>}
             <Formik
                 initialValues={{
-                    firstName: "",
-                    lastName: "",
+                    name: "",
                     email: "",
                     password: ""
                 }}
@@ -74,12 +71,8 @@ const RegisterForm = () => {
                         <>
                             <Form>
                                 <FieldWrapper>
-                                    <Field type="text" name="firstName" innerRef={firstNameRef} placeholder="First Name" autoComplete="off" />
-                                    <ErrorMessage name="firstName" component="div" className="error-message" />
-                                </FieldWrapper>
-                                <FieldWrapper>
-                                    <Field type="text" name="lastName" placeholder="Last Name" autoComplete="off" />
-                                    <ErrorMessage name="lastName" component="div" className="error-message" />
+                                    <Field type="text" name="name" innerRef={nameRef} placeholder="Name" autoComplete="off" />
+                                    <ErrorMessage name="name" component="div" className="error-message" />
                                 </FieldWrapper>
                                 <FieldWrapper>
                                     <Field type="text" name="email" placeholder="Email Address" autoComplete="off" />
