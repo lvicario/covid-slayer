@@ -3,7 +3,7 @@
 $ git clone https://github.com/lvicario/covid-slayer.git
 $ cd covid-slayer
 $ yarn
-$ yarn mock
+$ yarn dev
 ```
 > `yarn mock` will concurrently run scripts for the mock api (json-server & json-server-auth) & the app
 
@@ -14,6 +14,7 @@ $ yarn mock
 3. Logout & login again using the registered email & password.
 
 ### Technology/library used
+#### App
 - [React](https://reactjs.org/)
 - [Redux](https://react-redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -23,6 +24,16 @@ $ yarn mock
 - [formik](https://formik.org/docs/overview)
 - [axios](https://github.com/axios/axios)
 
-For mock api:
-- [json-server](https://github.com/typicode/json-server)
-- [json-server-auth](https://github.com/jeremyben/json-server-auth)
+#### Server
+- [express](https://expressjs.com/)
+- [bcrypt](https://github.com/kelektiv/node.bcrypt.js)
+- [cors](https://github.com/expressjs/cors)
+- [joi](https://github.com/sideway/joi)
+
+#### DB
+- [mongoDB](https://www.mongodb.com/)
+- [mongoose](https://mongoosejs.com/)
+
+~~For mock api:~~
+- ~~[json-server](https://github.com/typicode/json-server)~~
+- ~~[json-server-auth](https://github.com/jeremyben/json-server-auth)~~
