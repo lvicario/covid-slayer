@@ -5,7 +5,7 @@ $ cd covid-slayer
 $ yarn
 $ yarn dev
 ```
-> `yarn mock` will concurrently run scripts for the mock api (json-server & json-server-auth) & the app
+> `yarn dev` will concurrently run scripts for express server/api & the app
 
 ### Demo
 1. Register by clicking the register link
