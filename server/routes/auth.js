@@ -1,5 +1,6 @@
 const express = require("express");
 const Joi = require("joi");
+const bcrypt = require("bcrypt");
 const { User } = require("./../models/user");
 
 const router = express.Router();
@@ -8,12 +9,11 @@ router.post("/", async (req, res) => {
    const { error } = validate(req.body);
    if (error) return res.status(400).send(error.details[0].message);
 
-   const user = await User.find({
-       email: req.body.email,
-       password: req.body.password
-   });
+   let user = await User.findOne({ email: req.body.email });
+   if (!user) return res.status(400).send("Invalid email/password.");
 
-   if (!user || user.length < 1) return res.status(400).send(`Email and/or password doesn't match in the database...`);
+   const validPassword = await bcrypt.compare(req.body.password, user.password);
+   if (!validPassword) return res.status(400).send("Invalid email/password.");
 
    res.send({isAuthenticated: true, user});
 });
