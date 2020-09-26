@@ -5,20 +5,20 @@ import config from "./../config.json";
 const TOKEN = "token";
 
 class AuthService extends HttpService {
-	constructor(baseURL: string) {
-		super(baseURL);
-	}
+    constructor(baseURL: string) {
+        super(baseURL);
+    }
 
-	public login = async (data: { email: string, password: string }): Promise<HttpResponse> => {
+    public login = async (data: { email: string, password: string }): Promise<HttpResponse> => {
         return new Promise(async (resolve, reject) => {
             try {
-            	const response = await this.client.post("/signin", data);
+                const response = await this.client.post("/auth", data);
                 const jwt = response.data.accessToken;
                 localStorage.setItem(TOKEN, jwt);
 
-            	resolve(response.data);
+                resolve(response.data);
             } catch (err) {
-            	reject(err);
+                reject(err);
             }
         });
     }
@@ -41,6 +41,6 @@ class AuthService extends HttpService {
     }
 }
 
-const authService = new AuthService(config.mockEndpoint);
+const authService = new AuthService(config.endpoint);
 
 export default authService;
