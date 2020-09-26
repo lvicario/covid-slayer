@@ -1,6 +1,7 @@
 const express = require("express");
-const users = require("./routes/users");
 const mongoose = require("mongoose");
+const users = require("./routes/users");
+const auth = require("./routes/auth");
 
 const app = express();
 
@@ -9,6 +10,7 @@ mongoose.connect("mongodb://localhost/covid-slayer", { useNewUrlParser: true, us
 
 app.use(express.json());
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Listening to port ${PORT}...`));
